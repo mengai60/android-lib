@@ -18,19 +18,28 @@ public class TitleScrollView extends ScrollView {
 
     public TitleScrollView(Context context) {
         super(context);
+        init();
     }
 
     public TitleScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public TitleScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public TitleScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init();
+    }
+
+    private void init() {
+        setOverScrollMode(OVER_SCROLL_NEVER);
+        configuration = ViewConfiguration.get(getContext());
     }
 
     @Override
@@ -47,10 +56,8 @@ public class TitleScrollView extends ScrollView {
     }
 
     public void setTitle(View title) {
-        setOverScrollMode(OVER_SCROLL_NEVER);
-        configuration = ViewConfiguration.get(getContext());
         this.title = title;
-        background = this.title.getBackground();
+        background = title.getBackground();
         titleHeight = title.getLayoutParams().height;
     }
 

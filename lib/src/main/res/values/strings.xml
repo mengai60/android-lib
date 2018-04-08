@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading">加载中…</string>
+    <string name="load_fail">加载失败</string>
+    <string name="click_to_refresh">点击刷新</string>
+</resources>

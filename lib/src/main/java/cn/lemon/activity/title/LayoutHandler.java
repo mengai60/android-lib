@@ -128,13 +128,6 @@ public class LayoutHandler {
         }
     }
 
-    public void onDestroy() {
-        contentView = null;
-        titleView = null;
-        toolbar = null;
-        rootView = null;
-    }
-
     public boolean setContentView(View view, ViewGroup.LayoutParams params) {
         if (titleStyle.hasTitle()) {
             contentView = view;

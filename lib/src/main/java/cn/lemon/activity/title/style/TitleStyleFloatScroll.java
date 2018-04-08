@@ -12,6 +12,8 @@ import cn.lemon.androidlib.R;
  */
 public class TitleStyleFloatScroll implements ITitleStyle {
 
+    private TitleScrollView scrollView;
+
     @Override
     public boolean hasTitle() {
         return true;
@@ -34,28 +36,31 @@ public class TitleStyleFloatScroll implements ITitleStyle {
             rootView.removeViewAt(childCount - 1);
         }
         rootView.addView(titleView);
-
-        setScrollListener(contentView, titleView);
+        if (scrollView != null) {
+            scrollView.setTitle(titleView);
+            scrollView.setTitleHeight(scrollView.getResources().getDimensionPixelSize(R.dimen.banner_height));
+        }
     }
 
     @Override
     public void onContentLayoutSet(ViewGroup rootView, View titleView, View contentView, ViewGroup.LayoutParams params) {
         rootView.removeAllViews();
         if (contentView != null) {
+            if (contentView instanceof TitleScrollView) {
+                scrollView = (TitleScrollView) contentView;
+            } else {
+                scrollView = null;
+            }
             rootView.addView(contentView, params);
+        } else {
+            scrollView = null;
         }
         if (titleView != null) {
             rootView.addView(titleView);
-        }
-
-        setScrollListener(contentView, titleView);
-    }
-
-    private void setScrollListener(View contentView, View titleView) {
-        if (contentView != null && titleView != null) {
-            TitleScrollView scrollView = (TitleScrollView) contentView;
-            scrollView.setTitle(titleView);
-            scrollView.setTitleHeight(scrollView.getResources().getDimensionPixelSize(R.dimen.banner_height));
+            if (scrollView != null) {
+                scrollView.setTitle(titleView);
+                scrollView.setTitleHeight(scrollView.getResources().getDimensionPixelSize(R.dimen.banner_height));
+            }
         }
     }
 
