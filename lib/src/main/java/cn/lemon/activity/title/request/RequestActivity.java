@@ -33,7 +33,6 @@ public abstract class RequestActivity extends TitleActivity {
         setTitleView(titleLayoutId());
         if (!createAfterRequestSuccess()) {
             setContentView(contentLayoutId());
-            onInit();
         } else {
             int prepare = prepareRequestView();
             if (prepare != 0) {
@@ -41,13 +40,13 @@ public abstract class RequestActivity extends TitleActivity {
             }
             onRequest();
         }
+        onCreate();
     }
     /**
      * 网络请求成功后需调用该方法
      */
     protected void whenRequestSuccess() {
         setContentView(contentLayoutId());
-        onInit();
     }
     /**
      * 网络请求失败后需调用该方法
@@ -66,7 +65,7 @@ public abstract class RequestActivity extends TitleActivity {
         }
     }
 
-    protected abstract void onInit();
+    protected abstract void onCreate();
     protected abstract int titleLayoutId();
     protected abstract int contentLayoutId();
     protected boolean createAfterRequestSuccess() {
