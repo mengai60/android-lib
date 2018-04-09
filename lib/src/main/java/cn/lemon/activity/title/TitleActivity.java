@@ -26,7 +26,6 @@ public class TitleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        finishAfterTransition();
         thisActivity = this;
         layoutHandler = new LayoutHandler.Builder()
                 .setActivity(thisActivity)

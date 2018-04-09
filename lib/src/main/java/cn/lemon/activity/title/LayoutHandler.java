@@ -87,20 +87,22 @@ public class LayoutHandler {
 
     public void setTitleView(int layoutResID) {
         if (!titleStyle.hasTitle()) {
-            titleView = inflater.inflate(layoutResID, null);
+            if (layoutResID != 0) {
+                titleView = inflater.inflate(layoutResID, null);
+            }
         } else {
             titleView = inflater.inflate(layoutResID, rootView, false);
             titleStyle.onTitleLayoutSet(rootView, titleView, contentView);
         }
         // init toolbar
-        if (titleView instanceof Toolbar) {
+        if (titleView != null && titleView instanceof Toolbar) {
             toolbar = (Toolbar) titleView;
             if (titleStyle.bindSystemActionBar()) {
                 thisActivity.setSupportActionBar(toolbar);
             }
         } else if (libResIdsEnable) {
             toolbar = thisActivity.findViewById(R.id.TitleActivity_id_Toolbar);
-            if (titleStyle.bindSystemActionBar()) {
+            if (toolbar != null && titleStyle.bindSystemActionBar()) {
                 thisActivity.setSupportActionBar(toolbar);
             }
         }
