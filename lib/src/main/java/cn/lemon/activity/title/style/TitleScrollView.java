@@ -6,7 +6,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.widget.ScrollView;
 
 public class TitleScrollView extends ScrollView {
@@ -14,7 +13,6 @@ public class TitleScrollView extends ScrollView {
     private View title;
     private int titleHeight;
     private Drawable background;
-    private ViewConfiguration configuration;
 
     public TitleScrollView(Context context) {
         super(context);
@@ -39,20 +37,23 @@ public class TitleScrollView extends ScrollView {
 
     private void init() {
         setOverScrollMode(OVER_SCROLL_NEVER);
-        configuration = ViewConfiguration.get(getContext());
     }
 
     @Override
     protected void onScrollChanged(int left, int top, int oldLeft, int oldTop) {
         super.onScrollChanged(left, top, oldLeft, oldTop);
         int alpha = 0;
-        if (top <= titleHeight && top > 0) {
-            alpha = top * 255 / titleHeight;
-            title.setVisibility(VISIBLE);
-        } else {
-            title.setVisibility(oldTop > top ? VISIBLE : GONE);
+        if (title != null) {
+            if (top <= titleHeight && top > 0) {
+                alpha = top * 255 / titleHeight;
+                title.setVisibility(VISIBLE);
+            } else {
+                title.setVisibility(oldTop > top ? VISIBLE : GONE);
+            }
         }
-        background.setAlpha(255 - alpha);
+        if (background != null) {
+            background.setAlpha(255 - alpha);
+        }
     }
 
     public void setTitle(View title) {

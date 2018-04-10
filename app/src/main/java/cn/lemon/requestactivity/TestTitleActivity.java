@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import cn.lemon.activity.title.request.RequestActivity;
 import cn.lemon.activity.title.style.ITitleStyle;
-import cn.lemon.activity.title.style.TitleStyleFloatScroll;
+import cn.lemon.activity.title.style.TitleStyleFloat;
 
 public class TestTitleActivity extends RequestActivity {
 
@@ -22,12 +22,12 @@ public class TestTitleActivity extends RequestActivity {
     }
 
     @Override
-    protected void onCreate() {
+    protected void afterOnCreate() {
     }
 
     @Override
     protected ITitleStyle titleStyle() {
-        return new TitleStyleFloatScroll();
+        return new TitleStyleFloat();
     }
 
     @Override

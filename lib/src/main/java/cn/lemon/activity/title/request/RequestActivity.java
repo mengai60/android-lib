@@ -40,7 +40,7 @@ public abstract class RequestActivity extends TitleActivity {
             }
             onRequest();
         }
-        onCreate();
+        afterOnCreate();
     }
     /**
      * 网络请求成功后需调用该方法
@@ -65,7 +65,7 @@ public abstract class RequestActivity extends TitleActivity {
         }
     }
 
-    protected abstract void onCreate();
+    protected abstract void afterOnCreate();
     protected abstract int titleLayoutId();
     protected abstract int contentLayoutId();
     protected boolean createAfterRequestSuccess() {

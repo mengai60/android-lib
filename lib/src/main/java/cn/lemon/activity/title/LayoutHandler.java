@@ -38,6 +38,10 @@ public class LayoutHandler {
     private LayoutHandler() {
     }
 
+    public View getTitleView() {
+        return titleView;
+    }
+
     public static class Builder {
 
         LayoutHandler handler;
