@@ -4,7 +4,7 @@
     并提供Activity进入需要请求网络的预加载处理
 ## 引用
 ```
-    compile 'cn.lemon.androidlib:lib:1.0.1'
+    compile 'cn.lemon.androidlib:lib:1.0.4'
 ```
 ## TitleActivity用法
 ### 基本用法
