@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 
+import cn.lemon.androidlib.R;
+
 public class TitleScrollView extends ScrollView {
 
     private View title;
@@ -59,10 +61,7 @@ public class TitleScrollView extends ScrollView {
     public void setTitle(View title) {
         this.title = title;
         background = title.getBackground();
-        titleHeight = title.getLayoutParams().height;
+        titleHeight = getResources().getDimensionPixelSize(R.dimen.banner_height);
     }
 
-    public void setTitleHeight(int titleHeight) {
-        this.titleHeight = titleHeight;
-    }
 }

@@ -29,6 +29,7 @@ public abstract class RequestActivity extends TitleActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        beforeOnCreate();
         super.onCreate(savedInstanceState);
         setTitleView(titleLayoutId());
         if (!createAfterRequestSuccess()) {
@@ -65,6 +66,7 @@ public abstract class RequestActivity extends TitleActivity {
         }
     }
 
+    protected abstract void beforeOnCreate();
     protected abstract void afterOnCreate();
     protected abstract int titleLayoutId();
     protected abstract int contentLayoutId();

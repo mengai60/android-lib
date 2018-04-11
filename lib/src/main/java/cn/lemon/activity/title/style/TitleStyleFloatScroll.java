@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import cn.lemon.androidlib.R;
-
 /**
  * contentView的最外层控件必须是TitleScrollView
  */
@@ -38,7 +36,6 @@ public class TitleStyleFloatScroll implements ITitleStyle {
         rootView.addView(titleView);
         if (scrollView != null) {
             scrollView.setTitle(titleView);
-            scrollView.setTitleHeight(scrollView.getResources().getDimensionPixelSize(R.dimen.banner_height));
         }
     }
 
@@ -59,7 +56,6 @@ public class TitleStyleFloatScroll implements ITitleStyle {
             rootView.addView(titleView);
             if (scrollView != null) {
                 scrollView.setTitle(titleView);
-                scrollView.setTitleHeight(scrollView.getResources().getDimensionPixelSize(R.dimen.banner_height));
             }
         }
     }
