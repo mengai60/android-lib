@@ -22,6 +22,11 @@ public class TestTitleActivity extends RequestActivity {
     }
 
     @Override
+    protected void beforeOnCreate() {
+
+    }
+
+    @Override
     protected void afterOnCreate() {
     }
 

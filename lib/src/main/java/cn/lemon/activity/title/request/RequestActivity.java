@@ -29,8 +29,8 @@ public abstract class RequestActivity extends TitleActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        beforeOnCreate();
         super.onCreate(savedInstanceState);
+        beforeOnCreate();
         setTitleView(titleLayoutId());
         if (!createAfterRequestSuccess()) {
             setContentView(contentLayoutId());
