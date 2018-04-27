@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="TitleActivity_id_RootView" type="id"/>
     <item name="TitleActivity_id_Toolbar" type="id"/>
     <item name="TitleActivity_id_back" type="id"/>
     <item name="TitleActivity_id_title" type="id"/>

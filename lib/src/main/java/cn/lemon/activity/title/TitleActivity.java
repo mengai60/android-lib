@@ -103,8 +103,16 @@ public class TitleActivity extends AppCompatActivity {
         layoutHandler.setOnBackClickListener(listener);
     }
 
+    protected ViewGroup getRootView() {
+        return layoutHandler.getRootView();
+    }
+
     protected View getTitleView() {
         return layoutHandler.getTitleView();
+    }
+
+    protected View getContentView() {
+        return layoutHandler.getContentView();
     }
 
 }

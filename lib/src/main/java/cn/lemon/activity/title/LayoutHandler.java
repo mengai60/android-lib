@@ -38,8 +38,16 @@ public class LayoutHandler {
     private LayoutHandler() {
     }
 
+    public ViewGroup getRootView() {
+        return rootView;
+    }
+
     public View getTitleView() {
         return titleView;
+    }
+
+    public View getContentView() {
+        return contentView;
     }
 
     public static class Builder {
@@ -76,13 +84,10 @@ public class LayoutHandler {
     public boolean onCreate() {
         if (titleStyle.hasTitle()) {
             rootView = titleStyle.onBuildRootViewByStyle(thisActivity);
+            rootView.setId(R.id.TitleActivity_id_RootView);
             return true;
         }
         return false;
-    }
-
-    public ViewGroup getRootView() {
-        return rootView;
     }
 
     protected Toolbar getToolbar() {
