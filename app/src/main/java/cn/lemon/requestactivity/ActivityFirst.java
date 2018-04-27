@@ -20,8 +20,8 @@ public class ActivityFirst extends AppCompatActivity {
         contentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnimHelper.alpha(ActivityFirst.this, ActivitySecond.class);
-                finish();
+                AnimHelper.centerAlpha(ActivityFirst.this, ActivitySecond.class);
+//                finish();
             }
         });
     }

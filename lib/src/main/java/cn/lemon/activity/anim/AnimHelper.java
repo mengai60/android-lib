@@ -46,4 +46,13 @@ public class AnimHelper {
         ActivityCompat.startActivity(activity, new Intent(activity, cla), aoc.toBundle());
     }
 
+    public static ActivityOptionsCompat centerAlphaAnim(Activity activity) {
+        return ActivityOptionsCompat.makeCustomAnimation(activity, R.anim.activity_center_in, R.anim.activity_center_out);
+    }
+
+    public static void centerAlpha(Activity activity, Class<?> cla) {
+        ActivityOptionsCompat aoc = centerAlphaAnim(activity);
+        ActivityCompat.startActivity(activity, new Intent(activity, cla), aoc.toBundle());
+    }
+
 }
